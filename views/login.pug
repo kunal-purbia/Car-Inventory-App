@@ -1,0 +1,42 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='icon', type='image/x-icon', href='/images/favicon.ico')
+    link(rel='stylesheet', href='/stylesheets/registerForm.css')
+    title HOME
+  body
+    #navbar
+      img#brandLogo(src='/images/brand_logo.webp', alt='Brand Logo')
+      center
+        p#brandName WELCOME TO, AUTO-CARS
+      span#buttons
+        .dropdown
+          button.dropbtn.displayButton(onclick='myFunction()') REGISTER
+          #myDropdown.dropdown-content
+            a(href='/register/buyer') Buyer
+            a(href='/register/seller') Seller
+        button
+          a.displayButton(href='/login') LOGIN
+    #homeView
+      #registrationForm
+        form#formBox(action='/login', method='post')
+          label(for='email') Email:
+          br
+          input#userEmail(type='text', name='email')
+          if errorInput === "email"
+            p(style={"color":"red","font-weight":"bold","text-decoration":"underline"})   #{message} 
+          endif
+          br
+          label(for='password') Password:
+          br
+          input#password(type='password', name='password')
+          if errorInput === "password"
+            p(style={"color":"red","font-weight":"bold","text-decoration":"underline"})   #{message} 
+          endif
+          br
+          br
+          input#loginButton(type='submit', value='LOGIN')
+    script(src='/javascripts/registerForm.js')

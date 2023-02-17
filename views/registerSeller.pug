@@ -1,0 +1,97 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='icon', type='image/x-icon', href='/images/favicon.ico')
+    link(rel='stylesheet', href='/stylesheets/registerForm.css')
+    title HOME
+  body
+    #navbar
+      img#brandLogo(src='/images/brand_logo.webp', alt='Brand Logo')
+      center
+        p#brandName WELCOME TO, AUTO-CARS
+      span#buttons
+        .dropdown
+          button.dropbtn.displayButton(onclick='myFunction()') REGISTER
+          #myDropdown.dropdown-content
+            a(href='/register/buyer') Buyer
+            a(href='/register/seller') Seller
+        button
+          a.displayButton(href='/login') LOGIN
+    #homeView
+      #registrationForm
+        form#formBox(action='/register/seller', method='post')
+          label(for='userType') USER:
+          br
+          input#userType(type='text', name='userType', value='SELLER', disabled='')
+          br
+          label(for='showroom') Showroom Name:
+          br
+          input#showroom(type='text', name='showroomName')
+          if errorInput === "showroomName"
+            p(style={"color":"red","font-weight":"bold","text-decoration":"underline"})   #{message} 
+          endif
+          br
+          label(for='showroomAddress') Showroom Address:
+          br
+          input#showroom(type='text', name='showroomAddress')
+          if errorInput === "showroomAddress"
+            p(style={"color":"red","font-weight":"bold","text-decoration":"underline"})   #{message} 
+          endif
+          br
+          label(for='showroomContact') Showroom Contact No.:
+          br
+          input#showroom(type='text', name='showroomContact')
+          if errorInput === "showroomContact"
+            p(style={"color":"red","font-weight":"bold","text-decoration":"underline"})   #{message} 
+          endif
+          br
+          label(for='showroomId') Showroom ID:
+          br
+          input#showroomId(type='text', name='showroomId')
+          if errorInput === "showroomId"
+            p(style={"color":"red","font-weight":"bold","text-decoration":"underline"})   #{message} 
+          endif
+          br
+          label(for='showroomEmail') Showroom Email:
+          br
+          input#showroomEmail(type='text', name='showroomEmail')
+          if errorInput === "showroomEmail"
+            p(style={"color":"red","font-weight":"bold","text-decoration":"underline"})   #{message} 
+          endif
+          br
+          label(for='password') Password:
+          br
+          input#showroomEmail(type='password', name='password')
+          if errorInput === "password"
+            p(style={"color":"red","font-weight":"bold","text-decoration":"underline"})   #{message} 
+          endif
+          br
+          label(for='cpassword') Confirm Password:
+          br
+          input#showroomEmail(type='password', name='cpassword')
+          if errorInput === "cpassword"
+            p(style={"color":"red","font-weight":"bold","text-decoration":"underline"})   #{message} 
+          endif
+          br
+          label(for='carCompany') Car Company:
+          br
+          input(type='text', name='carCompany', list='companyName')
+          if errorInput === "carCompany"
+            p(style={"color":"red","font-weight":"bold","text-decoration":"underline"})   #{message} 
+          endif
+          br
+          datalist#companyName
+            option(value='MERCEDES')
+            option(value='VOLVO')
+            option(value='BMW')
+            option(value='AUDI')
+            option(value='SKODA')
+            option(value='HONDA')
+            option(value='TATA')
+            option(value='MARUTI')
+          br
+          input#registerButton(type='submit', value='REGISTER')
+    script(src='/javascripts/registerForm.js')
